@@ -58,6 +58,9 @@ document.addEventListener('DOMContentLoaded', function() {
             button.appendChild(rightDiv);
 
             button.setAttribute('style', "--content: '" + a.innerText +"';");
+            button.addEventListener('click', function(e) {
+                window.location.href = a.href;
+            });
             
             li2.appendChild(button);
             newMenu.appendChild(li2);
