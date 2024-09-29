@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', function() {
     let newMenu = document.createElement('ul');
     let menu = document.getElementById('menu-khoa-hoc-khac-sam-dev');
 
-    let size = 4;
+    let size = 5;
     let num = 0;
     for(let i = 0; i < size; i++) {
         let links = ulToArray(menu, 'li');
