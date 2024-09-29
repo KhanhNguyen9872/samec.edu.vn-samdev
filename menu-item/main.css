@@ -1,13 +1,13 @@
 .menu-2 {
-    list-style-type: none;
-    padding: 0;
-    display: flex;
-    flex-wrap: wrap; 
-    justify-content: center; 
+  list-style-type: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap; 
+  justify-content: center; 
 }
 
 .menu-item-new {
-    margin: 10px; 
+  margin: 15px; 
 }
 
 :root {
@@ -28,9 +28,8 @@
   background: none;
   cursor: pointer;
   
-  font-family: "Source Code Pro";
-  font-weight: 900;
-  text-transform: uppercase;
+  font-family: 'Times New Roman', Times, serif; 
+  font-weight: 500;
   font-size: 15px;  
   color: var(--text-color);
   
@@ -56,7 +55,8 @@
 }
 
 .menu-item-new button::after{
-  font-weight: 200;
+  font-family: 'Times New Roman', Times, serif; 
+  font-weight: 500;
   top: -30px;
   left: -20px;
 } 
