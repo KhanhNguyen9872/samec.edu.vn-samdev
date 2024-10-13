@@ -13,8 +13,8 @@
 :root {
   --text-color: rgb(255, 255, 255);
   --shadow-color: hsla(210, 34%, 57%, 0.4);
-  --btn-color: hsl(210, 80%, 42%);
-  --bg-color: #141218;
+  --btn-color: #27388F;
+  --bg-color: #EF5A21;
 }
 
 * {
@@ -28,7 +28,7 @@
   background: none;
   cursor: pointer;
   
-  font-family: 'Times New Roman', Times, serif; 
+  font-family: 'Arial', sans-serif;
   font-weight: 500;
   font-size: 16px;  
   color: var(--text-color);
@@ -55,7 +55,7 @@
 }
 
 .menu-item-new button::after{
-  font-family: 'Times New Roman', Times, serif; 
+  font-family: 'Arial', sans-serif;
   font-weight: 500;
   top: -30px;
   left: -20px;
