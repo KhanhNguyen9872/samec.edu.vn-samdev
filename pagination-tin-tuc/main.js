@@ -17,53 +17,55 @@ function showPage(pageNumber) {
 
     // Update active button
     document.querySelectorAll('.pagination button').forEach((btn, index) => {
-    btn.classList.toggle('active', index === pageNumber - 1);
+    btn.classList.toggle('active', parseInt(btn.textContent) === pageNumber);
     });
 }
 
 // Function to create pagination buttons
 function createPagination() {
     const totalPages = Math.ceil(items.length / itemsPerPage);
-    const maxButtons = 6;
 
+    if (totalPages <= 6) {
     for (let i = 1; i <= totalPages; i++) {
-    const button = document.createElement('button');
-    button.textContent = i;
-    button.addEventListener('click', () => {
+        const button = document.createElement('button');
+        button.textContent = i;
+        button.addEventListener('click', () => {
+        showPage(i);
+        });
+        paginationContainer.appendChild(button);
+    }
+    } else {
+    // First 3 pages
+    for (let i = 1; i <= 3; i++) {
+        const button = document.createElement('button');
+        button.textContent = i;
+        button.addEventListener('click', () => {
         showPage(i);
         updatePaginationButtons(i, totalPages);
-    });
-    paginationContainer.appendChild(button);
+        });
+        paginationContainer.appendChild(button);
+    }
+
+    // Ellipsis in the middle
+    const ellipsis = document.createElement('button');
+    ellipsis.textContent = '...';
+    ellipsis.className = 'ellipsis';
+    paginationContainer.appendChild(ellipsis);
+
+    // Last 3 pages
+    for (let i = totalPages - 2; i <= totalPages; i++) {
+        const button = document.createElement('button');
+        button.textContent = i;
+        button.addEventListener('click', () => {
+        showPage(i);
+        updatePaginationButtons(i, totalPages);
+        });
+        paginationContainer.appendChild(button);
+    }
     }
 
     // Set the first page as active
     showPage(1);
-    updatePaginationButtons(1, totalPages);
 }
 
-function updatePaginationButtons(currentPage, totalPages) {
-    const buttons = Array.from(paginationContainer.children);
-    buttons.forEach(button => (button.style.display = 'none'));
-
-    const maxButtons = 6;
-    const start = Math.max(1, currentPage - Math.floor(maxButtons / 2));
-    const end = Math.min(totalPages, start + maxButtons - 1);
-
-    for (let i = start; i <= end; i++) {
-    buttons[i - 1].style.display = 'inline-block';
-    }
-
-    if (start > 1) {
-    const ellipsisStart = document.createElement('span');
-    ellipsisStart.textContent = '...';
-    paginationContainer.insertBefore(ellipsisStart, buttons[start - 2]);
-    }
-    if (end < totalPages) {
-    const ellipsisEnd = document.createElement('span');
-    ellipsisEnd.textContent = '...';
-    paginationContainer.appendChild(ellipsisEnd);
-    }
-}
-
-// Initialize pagination
 createPagination();
